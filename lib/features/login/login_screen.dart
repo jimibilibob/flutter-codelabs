@@ -128,27 +128,35 @@ class _LoginContentState extends State<LoginContent> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     spacing: 8.0,
                     children: [
-                      if(isBiometricsEnabled)
-                        ... [
-                              Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
-                              MaterialSecondaryButton(
-                                title: 'Log in with password',
-                                colorScheme: widget.colorScheme
+                      AnimatedSize(
+                        duration: Duration(milliseconds: 100),
+                        child: Column(
+                          spacing: 8.0,
+                          children: [
+                            if(isBiometricsEnabled)
+                            ... [
+                                  Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
+                                  MaterialSecondaryButton(
+                                    title: 'Log in with password',
+                                    colorScheme: widget.colorScheme
+                                  ),
+                                  const SizedBox(height: 12.0,),
+                                  ConstrainedBox(
+                                    constraints: BoxConstraints(maxWidth: 250),
+                                    child: 
+                                      Text(
+                                        'Forget me on this device',
+                                        style: TextStyle(
+                                          color: AppColors.secondaryDarkLight,
+                                          fontSize: 16.0
+                                        ),
+                                      )
                               ),
                               const SizedBox(height: 12.0,),
-                              ConstrainedBox(
-                                constraints: BoxConstraints(maxWidth: 250),
-                                child: 
-                                  Text(
-                                    'Forget me on this device',
-                                    style: TextStyle(
-                                      color: AppColors.secondaryDarkLight,
-                                      fontSize: 16.0
-                                    ),
-                                  )
-                          ),
-                          const SizedBox(height: 12.0,),
-                        ],
+                            ],
+                          ],
+                        ),
+                      ),
                       _loginTextDescription(),
                       IconButton(
                         onPressed: () {},
