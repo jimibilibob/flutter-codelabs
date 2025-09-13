@@ -97,79 +97,84 @@ class _LoginContentState extends State<LoginContent> {
     return Center(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              spacing: 8.0,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      _loginAppHeader(),
-                      const SizedBox(height: 24.0,),
-                    ],
-                  )
-                ),
-                MaterialPrimaryButton(
-                  title: isBiometricsEnabled ? 'Log in with Biometrics' : 'Log in',
-                  colorScheme: widget.colorScheme,
-                  callback: () {
-                    setState(() {
-                      isBiometricsEnabled = !isBiometricsEnabled;
-                    });
-                  },
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    spacing: 8.0,
-                    children: [
-                      AnimatedSize(
-                        duration: Duration(milliseconds: 100),
-                        child: Column(
-                          spacing: 8.0,
-                          children: [
-                            if(isBiometricsEnabled)
-                            ... [
-                                  Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
-                                  MaterialSecondaryButton(
-                                    title: 'Log in with password',
-                                    colorScheme: widget.colorScheme
+            child: SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: 600),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  spacing: 8.0,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          _loginAppHeader(),
+                          const SizedBox(height: 24.0,),
+                        ],
+                      )
+                    ),
+                    MaterialPrimaryButton(
+                      title: isBiometricsEnabled ? 'Log in with Biometrics' : 'Log in',
+                      colorScheme: widget.colorScheme,
+                      callback: () {
+                        setState(() {
+                          isBiometricsEnabled = !isBiometricsEnabled;
+                        });
+                      },
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        spacing: 8.0,
+                        children: [
+                          AnimatedSize(
+                            duration: Duration(milliseconds: 100),
+                            child: Column(
+                              spacing: 8.0,
+                              children: [
+                                if(isBiometricsEnabled)
+                                ... [
+                                      Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
+                                      MaterialSecondaryButton(
+                                        title: 'Log in with password',
+                                        colorScheme: widget.colorScheme
+                                      ),
+                                      const SizedBox(height: 12.0,),
+                                      ConstrainedBox(
+                                        constraints: BoxConstraints(maxWidth: 250),
+                                        child: 
+                                          Text(
+                                            'Forget me on this device',
+                                            style: TextStyle(
+                                              color: AppColors.secondaryDarkLight,
+                                              fontSize: 16.0
+                                            ),
+                                          )
                                   ),
                                   const SizedBox(height: 12.0,),
-                                  ConstrainedBox(
-                                    constraints: BoxConstraints(maxWidth: 250),
-                                    child: 
-                                      Text(
-                                        'Forget me on this device',
-                                        style: TextStyle(
-                                          color: AppColors.secondaryDarkLight,
-                                          fontSize: 16.0
-                                        ),
-                                      )
-                              ),
-                              const SizedBox(height: 12.0,),
-                            ],
-                          ],
-                        ),
-                      ),
-                      _loginTextDescription(),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.info_outline,
-                          color: Colors.white,
-                          size: 24.0,
+                                ],
+                              ],
+                            ),
                           ),
-                      )
-                    ],
-                  ),
-                )
-              ],
+                          _loginTextDescription(),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.info_outline,
+                              color: Colors.white,
+                              size: 24.0,
+                              ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
         );
