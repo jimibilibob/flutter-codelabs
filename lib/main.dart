@@ -1,3 +1,4 @@
+import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -88,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             'Forget me on this device',
                             style: TextStyle(
-                              color: colorScheme.primary,
+                              color: AppColors.secondaryDarkLight,
                               fontSize: 16.0
                             ),
                         )
@@ -97,7 +98,11 @@ class LoginScreen extends StatelessWidget {
                       _loginTextDescription(colorScheme),
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.info_outline, color: Colors.white,),
+                        icon: const Icon(
+                          Icons.info_outline,
+                          color: Colors.white,
+                          size: 24.0,
+                          ),
                       )
                     ],
                   ),
@@ -135,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     TextSpan(
                       text: 'WorkWorks Terms of Use ',
-                      style: TextStyle(fontSize: 14.0, color: colorScheme.primary),
+                      style: TextStyle(fontSize: 14.0, color: AppColors.secondaryDarkLight),
                     ),
                     TextSpan(
                       text: 'and',
@@ -143,7 +148,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     TextSpan(
                       text: ' Privacy Policy.',
-                      style: TextStyle(fontSize: 14.0, color: colorScheme.primary),
+                      style: TextStyle(fontSize: 14.0, color: AppColors.secondaryDarkLight),
                     ),
                   ],
                 ),
@@ -167,7 +172,7 @@ class MaterialPrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: () {},
-      color: colorScheme.primary,
+      color: AppColors.primaryMainLight,
       textColor: Colors.white,
       shape: StadiumBorder(),
       padding: EdgeInsets.symmetric(vertical: 16.0),
