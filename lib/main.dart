@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
   Center _loginContent(ColorScheme colorScheme) {
     return Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,13 +65,35 @@ class LoginScreen extends StatelessWidget {
                     ],
                   )
                 ),
-                MaterialPrimaryButton(colorScheme: colorScheme),
+                MaterialPrimaryButton(
+                  title: 'Log in',
+                  colorScheme: colorScheme,
+                  ),
                 Expanded(
                   flex: 1,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    spacing: 8.0,
                     children: [
+                      Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
+                      MaterialSecondaryButton(
+                        title: 'Log in with password',
+                        colorScheme: colorScheme
+                        ),
+                      const SizedBox(height: 12.0,),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 250),
+                        child: 
+                          Text(
+                            'Forget me on this device',
+                            style: TextStyle(
+                              color: colorScheme.primary,
+                              fontSize: 16.0
+                            ),
+                        )
+                      ),
+                      const SizedBox(height: 12.0,),
                       _loginTextDescription(colorScheme),
                       IconButton(
                         onPressed: () {},
@@ -88,38 +110,46 @@ class LoginScreen extends StatelessWidget {
 
   Row _loginAppHeader(ColorScheme colorScheme) {
     return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset('assets/images/ic_app.svg', width: 90, height: 90,),
-                    const SizedBox(width: 12.0,),
-                    Text('WinTeam', style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: colorScheme.onPrimary,
-                      fontSize: 50.0,
-                    ),)
-                  ],
-                );
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset('assets/images/ic_app.svg', width: 90, height: 90,),
+              const SizedBox(width: 12.0,),
+              Text('WinTeam', style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: colorScheme.onPrimary,
+                fontSize: 50.0,
+              ),)
+            ],
+          );
   }
 
   ConstrainedBox _loginTextDescription(ColorScheme colorScheme) {
     return ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 300),
-                      child: Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'By logging in, you agree to ',
-                              style: TextStyle(fontSize: 14.0, color: Colors.white),
-                            ),
-                            TextSpan(
-                              text: 'WorkWorks Terms of Use and Privacy Policy.',
-                              style: TextStyle(fontSize: 14.0, color: colorScheme.primary),
-                            ),
-                          ],
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    );
+              constraints: BoxConstraints(maxWidth: 300),
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'By logging in, you agree to ',
+                      style: TextStyle(fontSize: 14.0, color: Colors.white),
+                    ),
+                    TextSpan(
+                      text: 'WorkWorks Terms of Use ',
+                      style: TextStyle(fontSize: 14.0, color: colorScheme.primary),
+                    ),
+                    TextSpan(
+                      text: 'and',
+                      style: TextStyle(fontSize: 14.0, color: Colors.white),
+                    ),
+                    TextSpan(
+                      text: ' Privacy Policy.',
+                      style: TextStyle(fontSize: 14.0, color: colorScheme.primary),
+                    ),
+                  ],
+                ),
+                textAlign: TextAlign.center,
+              ),
+            );
   }
 }
 
@@ -127,9 +157,11 @@ class MaterialPrimaryButton extends StatelessWidget {
   const MaterialPrimaryButton({
     super.key,
     required this.colorScheme,
+    required this.title,
   });
 
   final ColorScheme colorScheme;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +172,32 @@ class MaterialPrimaryButton extends StatelessWidget {
       shape: StadiumBorder(),
       padding: EdgeInsets.symmetric(vertical: 16.0),
       minWidth: double.infinity,
-      child: const Text('Log in', style: TextStyle(fontSize: 16),),
+      child: Text(title, style: TextStyle(fontSize: 16),),
+    );
+  }
+}
+
+class MaterialSecondaryButton extends StatelessWidget {
+  const MaterialSecondaryButton({
+    super.key,
+    required this.colorScheme,
+    required this.title,
+  });
+
+  final ColorScheme colorScheme;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      onPressed: () {},
+      color: Colors.transparent,
+      textColor: Colors.white,
+      elevation: 0,
+      shape: StadiumBorder().copyWith(side: BorderSide(color: Colors.white, width: 1.5)),
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      minWidth: double.infinity,
+      child: Text(title, style: TextStyle(fontSize: 16),),
     );
   }
 }
