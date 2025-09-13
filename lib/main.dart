@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'data.dart';
 
@@ -14,7 +15,132 @@ class DocumentApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: DocumentScreen(document: Document()),
+      home: LoginScreen(),
+    );
+  }
+}
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var colorScheme = Theme.of(context).colorScheme;
+    return Scaffold(
+      // appBar: AppBar(title: const Text('Login')),
+      body: Stack(
+        children: [
+          _loginBackground(),
+          _loginContent(colorScheme)
+        ],
+      ),
+    );
+  }
+
+  SvgPicture _loginBackground() {
+    return SvgPicture.asset(
+          'assets/images/login_background.svg',
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
+        );
+  }
+
+  Center _loginContent(ColorScheme colorScheme) {
+    return Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              spacing: 8.0,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      _loginAppHeader(colorScheme),
+                      const SizedBox(height: 24.0,),
+                    ],
+                  )
+                ),
+                MaterialPrimaryButton(colorScheme: colorScheme),
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      _loginTextDescription(colorScheme),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.info_outline, color: Colors.white,),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+  }
+
+  Row _loginAppHeader(ColorScheme colorScheme) {
+    return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('assets/images/ic_app.svg', width: 90, height: 90,),
+                    const SizedBox(width: 12.0,),
+                    Text('WinTeam', style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: colorScheme.onPrimary,
+                      fontSize: 50.0,
+                    ),)
+                  ],
+                );
+  }
+
+  ConstrainedBox _loginTextDescription(ColorScheme colorScheme) {
+    return ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: 300),
+                      child: Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'By logging in, you agree to ',
+                              style: TextStyle(fontSize: 14.0, color: Colors.white),
+                            ),
+                            TextSpan(
+                              text: 'WorkWorks Terms of Use and Privacy Policy.',
+                              style: TextStyle(fontSize: 14.0, color: colorScheme.primary),
+                            ),
+                          ],
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    );
+  }
+}
+
+class MaterialPrimaryButton extends StatelessWidget {
+  const MaterialPrimaryButton({
+    super.key,
+    required this.colorScheme,
+  });
+
+  final ColorScheme colorScheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      onPressed: () {},
+      color: colorScheme.primary,
+      textColor: Colors.white,
+      shape: StadiumBorder(),
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      minWidth: double.infinity,
+      child: const Text('Log in', style: TextStyle(fontSize: 16),),
     );
   }
 }
