@@ -1,7 +1,9 @@
 import 'package:educa_mobile_padres/material_button.dart';
 import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -53,11 +55,12 @@ class _LoginContentState extends State<LoginContent> {
               ),
               Text(
                   'WinTeam',
-                  style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: widget.colorScheme.onPrimary,
-                  fontSize: 50.0,
-                ),
+                  style: GoogleFonts.roboto(
+                    textStyle: Theme.of(context).textTheme.displayMedium!.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    )
+                  ),
               )
             ],
           );
@@ -67,23 +70,34 @@ class _LoginContentState extends State<LoginContent> {
     return ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 300),
               child: Text.rich(
+                style: GoogleFonts.roboto(
+                  textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Colors.white,
+                  )
+                ),
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: 'By logging in, you agree to ',
-                      style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      text: 'By logging in, you agree to '
                     ),
                     TextSpan(
                       text: 'WorkWorks Terms of Use ',
                       style: TextStyle(fontSize: 14.0, color: AppColors.secondaryDarkLight),
+                      recognizer: TapGestureRecognizer()..
+                        onTap = () {
+                          print('Terms of Use');
+                        }
                     ),
                     TextSpan(
                       text: 'and',
-                      style: TextStyle(fontSize: 14.0, color: Colors.white),
                     ),
                     TextSpan(
                       text: ' Privacy Policy.',
                       style: TextStyle(fontSize: 14.0, color: AppColors.secondaryDarkLight),
+                      recognizer: TapGestureRecognizer()..
+                        onTap = () {
+                          print('Privacy Policy');
+                        }
                     ),
                   ],
                 ),
@@ -141,17 +155,21 @@ class _LoginContentState extends State<LoginContent> {
                                       Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
                                       MaterialSecondaryButton(
                                         title: 'Log in with password',
-                                        colorScheme: widget.colorScheme
+                                        colorScheme: widget.colorScheme,
+                                        callback: () {},
                                       ),
                                       const SizedBox(height: 12.0,),
                                       ConstrainedBox(
                                         constraints: BoxConstraints(maxWidth: 250),
                                         child: 
-                                          Text(
-                                            'Forget me on this device',
-                                            style: TextStyle(
-                                              color: AppColors.secondaryDarkLight,
-                                              fontSize: 16.0
+                                          InkWell(
+                                            onTap: () { print('Forget me on this device'); },
+                                            child: Text(
+                                              'Forget me on this device',
+                                              style: TextStyle(
+                                                color: AppColors.secondaryDarkLight,
+                                                fontSize: 16.0
+                                              ),
                                             ),
                                           )
                                   ),
