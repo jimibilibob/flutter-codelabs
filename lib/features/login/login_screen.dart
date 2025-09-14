@@ -1,4 +1,4 @@
-import 'package:educa_mobile_padres/material_button.dart';
+import 'package:educa_mobile_padres/shared/views/material_button.dart';
 import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         children: [
           _loginBackground(),
-          LoginContent(colorScheme)
+          LoginContent()
         ],
       ),
     );
@@ -32,9 +32,8 @@ class LoginScreen extends StatelessWidget {
 }
 
 class LoginContent extends StatefulWidget {
-  const LoginContent(this.colorScheme, {super.key});
+  const LoginContent({super.key});
 
-  final ColorScheme colorScheme;
 
   @override
   State<LoginContent> createState() => _LoginContentState();
@@ -131,7 +130,6 @@ class _LoginContentState extends State<LoginContent> {
                     ),
                     MaterialPrimaryButton(
                       title: isBiometricsEnabled ? 'Log in with Biometrics' : 'Log in',
-                      colorScheme: widget.colorScheme,
                       callback: () {
                         setState(() {
                           isBiometricsEnabled = !isBiometricsEnabled;
@@ -155,7 +153,7 @@ class _LoginContentState extends State<LoginContent> {
                                       Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
                                       MaterialSecondaryButton(
                                         title: 'Log in with password',
-                                        colorScheme: widget.colorScheme,
+                                        titleColor: Colors.white,
                                         callback: () {},
                                       ),
                                       const SizedBox(height: 12.0,),

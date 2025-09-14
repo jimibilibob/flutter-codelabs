@@ -5,12 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 class MaterialPrimaryButton extends StatelessWidget {
   const MaterialPrimaryButton({
     super.key,
-    required this.colorScheme,
     required this.title,
     this.callback,
   });
 
-  final ColorScheme colorScheme;
   final String title;
   final VoidCallback? callback;
 
@@ -33,13 +31,13 @@ class MaterialPrimaryButton extends StatelessWidget {
 class MaterialSecondaryButton extends StatelessWidget {
   const MaterialSecondaryButton({
     super.key,
-    required this.colorScheme,
     required this.title,
+    required this.titleColor,
     this.callback
   });
 
-  final ColorScheme colorScheme;
   final String title;
+  final Color titleColor;
   final VoidCallback? callback;
 
   @override
@@ -48,12 +46,12 @@ class MaterialSecondaryButton extends StatelessWidget {
     return MaterialButton(
       onPressed: callback,
       color: Colors.transparent,
-      textColor: Colors.white,
+      textColor: titleColor,
       elevation: 0,
       shape: StadiumBorder().copyWith(side: BorderSide(color: Colors.white, width: 1.5)),
       padding: EdgeInsets.symmetric(vertical: 16.0),
       minWidth: double.infinity,
-      child: Text(title, style: GoogleFonts.roboto(textStyle: textTheme.titleSmall!.copyWith(color: Colors.white)),),
+      child: Text(title, style: GoogleFonts.roboto(textStyle: textTheme.titleSmall!.copyWith(color: titleColor)),),
     );
   }
 }
