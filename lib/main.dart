@@ -1,3 +1,4 @@
+import 'package:educa_mobile_padres/features/biometric/biometric_screen.dart';
 import 'package:educa_mobile_padres/features/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class DocumentApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: LoginScreen(),
+      home: BiometricScreen(),
     );
   }
 }

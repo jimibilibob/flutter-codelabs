@@ -84,13 +84,13 @@ class AppColors {
   static const Color dividerDark = slateBlueGray700;
 
   // Text
-  static final Color textPrimaryLight = Color(0xFF0E283F).withValues(alpha: 0.85);
+  static final Color textPrimaryLight = slateBlueGray900.withValues(alpha: 0.85);
   static final Color textPrimaryDark = slateBlueGray50.withValues(alpha: 0.85);
-  static final Color textSecondaryLight = Color(0xFF0E283F).withValues(alpha: 0.7);
+  static final Color textSecondaryLight = slateBlueGray900.withValues(alpha: 0.7);
   static final Color textSecondaryDark = slateBlueGray50.withValues(alpha: 0.7);
-  static final Color textDisabledLight = Color(0xFF0E283F).withValues(alpha: 0.55);
+  static final Color textDisabledLight = slateBlueGray900.withValues(alpha: 0.55);
   static final Color textDisabledDark = slateBlueGray50.withValues(alpha: 0.55);
-  static const Color textContrastLight = Color(0xFF0E283F);
+  static const Color textContrastLight = slateBlueGray900;
   static const Color textContrastDark = slateBlueGray50;
 
   // Primary
