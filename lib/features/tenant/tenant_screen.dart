@@ -12,34 +12,36 @@ class TenantScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 40,),
-              Padding(
-                padding: const EdgeInsets.only(left: 12.0),
-                child: Column(
-                  spacing: 5,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 40,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Column(
+                    spacing: 5,
+                    children: [
+                      MainTitle(title: 'Choose an account'),
+                      MainDescription(text: 'You can always switch this later, inside the app.'),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  spacing: 12,
                   children: [
-                    MainTitle(title: 'Choose an account'),
-                    MainDescription(text: 'You can always switch this later, inside the app.'),
+                    CustomMaterialOutlinedButton(title: 'Acme Cleaning Co.', titleColor: AppColors.oceanBlue500),
+                    CustomMaterialOutlinedButton(title: "Marsha's Building Maintenance", titleColor: AppColors.oceanBlue500),
+                    CustomMaterialOutlinedButton(title: 'Titanium & Co.', titleColor: AppColors.oceanBlue500),
+                    CustomMaterialOutlinedButton(title: 'Titanium & Co.', titleColor: AppColors.oceanBlue500),
                   ],
                 ),
-              ),
-              SizedBox(height: 40,),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                spacing: 12,
-                children: [
-                  CustomMaterialOutlinedButton(title: 'Acme Cleaning Co.', titleColor: AppColors.oceanBlue500),
-                  CustomMaterialOutlinedButton(title: "Marsha's Building Maintenance", titleColor: AppColors.oceanBlue500),
-                  CustomMaterialOutlinedButton(title: 'Titanium & Co.', titleColor: AppColors.oceanBlue500),
-                ],
-              ),
-              Spacer()
-            ],
+              ],
+            ),
           ),
         ),
       ),
