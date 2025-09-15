@@ -1,12 +1,30 @@
 
-import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
 import 'package:educa_mobile_padres/shared/views/custom_material_button.dart';
 import 'package:educa_mobile_padres/shared/views/main_description.dart';
 import 'package:educa_mobile_padres/shared/views/title_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class EnableNotificationScreen extends StatelessWidget {
+class EnableFeatureScreen extends StatelessWidget {
+  const EnableFeatureScreen({super.key,
+    required this.title,
+    required this.description,
+    required this.svgAssetPath,
+    required this.primaryButtonTitle,
+    this.primaryButtonCallback,
+    required this.secondaryButtonTitle,
+    this.secondaryButtonCallback
+  });
+  
+  final String title;
+  final String description;
+  final String svgAssetPath;
+  final String primaryButtonTitle;
+  final VoidCallback? primaryButtonCallback;
+  final String secondaryButtonTitle;
+  final VoidCallback? secondaryButtonCallback;
+
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -31,14 +49,14 @@ class EnableNotificationScreen extends StatelessWidget {
                     child: Column(
                       spacing: 5,
                       children: [
-                        MainTitle(title: 'Enable notifications'),
-                        MainDescription(text: 'Get remainders for missed clock-ins.'),
+                        MainTitle(title: title),
+                        MainDescription(text: description),
                       ],
                     ),
                   ),
                   Spacer(),
                   SvgPicture.asset(
-                    'assets/images/ic_notification.svg',
+                    svgAssetPath,
                     height: 200, fit: BoxFit.cover,
                   ),
                   Spacer(),
@@ -48,10 +66,13 @@ class EnableNotificationScreen extends StatelessWidget {
                     spacing: 12,
                     children: [
                       CustomMaterialPrimaryButton(
-                        title: 'Enable notifications',
-                        callback: () {},
+                        title: primaryButtonTitle,
+                        callback: primaryButtonCallback,
                       ),
-                      CustomTextButton(title: 'Not right now')
+                      CustomTextButton(
+                        title: 'Not right now',
+                        callbackAction: secondaryButtonCallback,
+                      )
                     ],
                   )
                 ],

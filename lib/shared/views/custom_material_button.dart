@@ -86,15 +86,16 @@ class CustomMaterialOutlinedButton extends StatelessWidget {
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
-    super.key, required this.title,
+    super.key, required this.title, this.callbackAction,
   });
 
   final String title;
+  final VoidCallback? callbackAction;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: callbackAction,
       child: Text(
         title,
         style: GoogleFonts.roboto(
