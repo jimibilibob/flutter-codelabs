@@ -1,4 +1,5 @@
 import 'package:educa_mobile_padres/features/biometric/biometric_screen.dart';
+import 'package:educa_mobile_padres/features/dashboard_screen.dart/dashboard_screen.dart';
 import 'package:educa_mobile_padres/features/login/login_screen.dart';
 import 'package:educa_mobile_padres/features/notification/enable_notification_screen.dart';
 import 'package:educa_mobile_padres/features/tenant/tenant_screen.dart';
@@ -16,7 +17,7 @@ class DocumentApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: EnableNotificationScreen(),
+      home: DashboardScreen(),
     );
   }
 }
