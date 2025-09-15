@@ -113,6 +113,9 @@ class AppColors {
   static const Color secondaryContrastLight = oceanBlue50;
   static const Color secondaryContrastDark = oceanBlue800;
 
+  // Outlined Button
+  static final Color outlinedBorderColorLight = slateBlueGrayA700.withValues(alpha: 0.56);
+
   // App Bar
   static const Color appBarDefaultFillLight = Color(0xFFF5F5F5);
   static const Color appBarDefaultFillDark = Color(0xFFF5F5F5);
