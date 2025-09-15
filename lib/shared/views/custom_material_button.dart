@@ -83,3 +83,24 @@ class CustomMaterialOutlinedButton extends StatelessWidget {
     );
   }
 }
+
+class CustomTextButton extends StatelessWidget {
+  const CustomTextButton({
+    super.key, required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {},
+      child: Text(
+        title,
+        style: GoogleFonts.roboto(
+          textStyle: TextStyle(color: AppColors.primaryMainLight)
+        )
+      ),
+    );
+  }
+}
