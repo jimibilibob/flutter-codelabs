@@ -1,10 +1,8 @@
-import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
 import 'package:educa_mobile_padres/shared/views/main_description.dart';
 import 'package:educa_mobile_padres/shared/views/custom_material_button.dart';
 import 'package:educa_mobile_padres/shared/views/title_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class BiometricScreen extends StatefulWidget {
   const BiometricScreen({super.key});
@@ -67,10 +65,7 @@ class _BiometricScreenState extends State<BiometricScreen> {
                               });
                             },
                           ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text('No thanks', style: GoogleFonts.roboto(textStyle: TextStyle(color: AppColors.primaryMainLight))),
-                          ),
+                          CustomTextButton(title: 'No thanks'),
                         ],
                       ),
                     )
