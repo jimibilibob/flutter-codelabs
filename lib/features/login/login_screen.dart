@@ -1,4 +1,4 @@
-import 'package:educa_mobile_padres/shared/views/material_button.dart';
+import 'package:educa_mobile_padres/shared/views/custom_material_button.dart';
 import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -128,7 +128,7 @@ class _LoginContentState extends State<LoginContent> {
                         ],
                       )
                     ),
-                    MaterialPrimaryButton(
+                    CustomMaterialPrimaryButton(
                       title: isBiometricsEnabled ? 'Log in with Biometrics' : 'Log in',
                       callback: () {
                         setState(() {
@@ -151,7 +151,7 @@ class _LoginContentState extends State<LoginContent> {
                                 if(isBiometricsEnabled)
                                 ... [
                                       Text('or', style: TextStyle(color: Colors.white, fontSize: 16.0),),
-                                      MaterialSecondaryButton(
+                                      CustomMaterialSecondaryButton(
                                         title: 'Log in with password',
                                         titleColor: Colors.white,
                                         callback: () {},

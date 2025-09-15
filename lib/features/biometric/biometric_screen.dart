@@ -1,5 +1,7 @@
 import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
-import 'package:educa_mobile_padres/shared/views/material_button.dart';
+import 'package:educa_mobile_padres/shared/views/main_description.dart';
+import 'package:educa_mobile_padres/shared/views/custom_material_button.dart';
+import 'package:educa_mobile_padres/shared/views/title_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,29 +39,8 @@ class _BiometricScreenState extends State<BiometricScreen> {
                           spacing: 8,
                           children: [
                             Spacer(),
-                            SizedBox(
-                              width: double.infinity,
-                              child: Text(
-                                'Enable Face ID login',
-                                textAlign: TextAlign.left,
-                                style:
-                                    GoogleFonts.roboto(
-                                    textStyle: Theme.of(context).textTheme.headlineLarge,
-                                  )
-                              ),
-                            ),
-                            SizedBox(
-                              width: double.infinity,
-                              child: Text(
-                                  "Enable Face ID to access your account, so you won't need to type your passwork each time.",
-                                  textAlign: TextAlign.left,
-                                    style:
-                                        GoogleFonts.roboto(
-                                        textStyle: Theme.of(context).textTheme.bodyLarge,
-                                        color: AppColors.textSecondaryLight
-                                      )
-                              ),
-                            ),
+                            MainTitle(title: 'Enable Face ID login'),
+                            MainDescription(text: "Enable Face ID to access your account, so you won't need to type your passwork each time."),
                             Spacer(),
                           ],
                         ),
@@ -78,7 +59,7 @@ class _BiometricScreenState extends State<BiometricScreen> {
                       child: Column(
                         children: [
                           Spacer(),
-                          MaterialPrimaryButton(
+                          CustomMaterialPrimaryButton(
                             title: "Enable Face ID",
                             callback: () {
                               setState(() {
