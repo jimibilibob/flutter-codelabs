@@ -56,6 +56,18 @@ class AppColors {
   static const Color sunnyYellow800 = Color(0xFF89660F);
   static const Color sunnyYellow900 = Color(0xFF453408);
 
+  // Lobster Red
+  static const Color lobsterRed50 = Color(0xFFFBECE9);
+  static const Color lobsterRed100 = Color(0xFFF7DAD5);
+  static const Color lobsterRed200 = Color(0xFFECA598);
+  static const Color lobsterRed300 = Color(0xFFE58270);
+  static const Color lobsterRed400 = Color(0xFFF1674F);
+  static const Color lobsterRed500 = Color(0xFFD63B1F);
+  static const Color lobsterRed600 = Color(0xFFA62E18);
+  static const Color lobsterRed700 = Color(0xFF892614);
+  static const Color lobsterRed800 = Color(0xFF621B0E);
+  static const Color lobsterRed900 = Color(0xFF3C1009);
+
   // Cloud Gray
   static const Color cloudGray50 = Color(0xFFFFFFFF);
   static const Color cloudGray100 = Color(0xFFF9FAFB);
@@ -78,6 +90,18 @@ class AppColors {
   static const Color slateBlueGray800 = Color(0xFF273E53);
   static const Color slateBlueGray900 = Color(0xFF0E283F);
   static const Color slateBlueGrayA700 = Color(0xFF091B2A);
+
+  // Seafoam Teal
+  static const Color seafoamTeal50 = Color(0xFFE7F5F6);
+  static const Color seafoamTeal100 = Color(0xFFCFEAED);
+  static const Color seafoamTeal200 = Color(0xFFB8E0E4);
+  static const Color seafoamTeal300 = Color(0xFF9FD5DB);
+  static const Color seafoamTealA400 = Color(0xFF6FBFC8);
+  static const Color seafoamTealA500 = Color(0xFF53B3BE);
+  static const Color seafoamTealA600 = Color(0xFF0F95A4);
+  static const Color seafoamTealA700 = Color(0xFF0B707B);
+  static const Color seafoamTealA800 = Color(0xFF074A52);
+  static const Color seafoamTealA900 = Color(0xFF042529);
 
   // Divider
   static const Color dividerLight = slateBlueGray100;
@@ -113,10 +137,31 @@ class AppColors {
   static const Color secondaryContrastLight = oceanBlue50;
   static const Color secondaryContrastDark = oceanBlue800;
 
+  // Action
+  static final Color actionActiveLight = slateBlueGrayA700.withValues(alpha: 0.56);
+  static final Color actionActiveDark = slateBlueGray50.withValues(alpha: 0.56);
+  static final Color actionHoverLight = slateBlueGrayA700.withValues(alpha: 0.04);
+  static final Color actionHoverDark = slateBlueGrayA700.withValues(alpha: 0.04);
+  static final Color actionSelectedLight = slateBlueGrayA700.withValues(alpha: 0.08);
+  static final Color actionSelectedDark = slateBlueGrayA700.withValues(alpha: 0.08);
+  static final Color actionDisableBackgroundLight = slateBlueGrayA700.withValues(alpha: 0.12);
+  static final Color actionDisableBackgroundDark = slateBlueGrayA700.withValues(alpha: 0.12);
+  static final Color actionFocusLight = slateBlueGrayA700.withValues(alpha: 0.12);
+  static final Color actionFocusDark = slateBlueGrayA700.withValues(alpha: 0.12);
+  static final Color actionDisabledLight = slateBlueGrayA700.withValues(alpha: 0.38);
+  static final Color actionDisabledDark = slateBlueGrayA700.withValues(alpha: 0.38);
+
   // Outlined Button
   static final Color outlinedBorderColorLight = slateBlueGrayA700.withValues(alpha: 0.56);
+
+  // Screens
+  static const screenBackgroundColorLight = cloudGray200;
 
   // App Bar
   static const Color appBarDefaultFillLight = Color(0xFFF5F5F5);
   static const Color appBarDefaultFillDark = Color(0xFFF5F5F5);
+  static const Color appBarBackgroundLight = cloudGray100;
+
+  // Color Set
+  static const Color seafoamDark = seafoamTealA700;
 }
