@@ -19,7 +19,7 @@ class DocumentApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: EnableLocationScreen(),
+      home: DashboardScreen(),
     );
   }
 }

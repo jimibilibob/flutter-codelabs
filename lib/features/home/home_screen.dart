@@ -1,4 +1,5 @@
 import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
+import 'package:educa_mobile_padres/shared/views/custom_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,10 +59,7 @@ class HomeBodyBottom extends StatelessWidget {
                           title: 'Pay & Benefits',
                           description: 'Paychecks, time off, and tax forms',
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5.0),
-                          child: Divider(thickness: 1, color: AppColors.slateBlueGray50,),
-                        ),
+                        CustomDivider(color: AppColors.slateBlueGray50),
                         _HomeScreenItem(
                           title: 'Timekeeping',
                           description: 'Access time clock and time records',
