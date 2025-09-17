@@ -1,5 +1,6 @@
 import 'package:educa_mobile_padres/features/home/home_screen.dart';
 import 'package:educa_mobile_padres/shared/theme/app_colors.dart';
+import 'package:educa_mobile_padres/shared/views/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +36,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         centerTitle: true,
       ),
       backgroundColor: AppColors.screenBackgroundColorLight,
-      drawer: Drawer(),
+      drawer: CustomDrawer(),
       body: [
         HomeScreen(usableScreenHeight: usableScreenHeight),
         Text('Timekeeping Screen')
